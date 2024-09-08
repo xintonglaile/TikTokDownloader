@@ -1,27 +1,28 @@
 <div align="center">
 <img src="https://github.com/JoeanAmier/TikTokDownloader/blob/master/static/images/TikTokDownloader.png" alt="TikTokDownloader" height="256" width="256"><br>
-<h1>TikTokDownloader 文档</h1>
-<img alt="GitHub" src="https://img.shields.io/github/license/JoeanAmier/TikTokDownloader?style=for-the-badge&color=ff7a45">
-<img alt="GitHub forks" src="https://img.shields.io/github/forks/JoeanAmier/TikTokDownloader?style=for-the-badge&color=fa8c16">
+<h1>TikTokDownloader 项目文档</h1>
+<img alt="GitHub" src="https://img.shields.io/github/license/JoeanAmier/TikTokDownloader?style=for-the-badge&color=ff6348">
+<img alt="GitHub forks" src="https://img.shields.io/github/forks/JoeanAmier/TikTokDownloader?style=for-the-badge&color=ffa502">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/JoeanAmier/TikTokDownloader?style=for-the-badge&color=ffee6f">
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/JoeanAmier/TikTokDownloader?style=for-the-badge&color=13c2c2">
 <br>
-<img alt="GitHub release (with filter)" src="https://img.shields.io/github/v/release/JoeanAmier/TikTokDownloader?style=for-the-badge&color=f759ab">
-<img src="https://img.shields.io/badge/Sourcery-enabled-884898?style=for-the-badge&color=1890ff" alt="">
+<img alt="Static Badge" src="https://img.shields.io/badge/Python-3.12-3498db?style=for-the-badge&logo=python&labelColor=fffa65">
+<img alt="GitHub release (with filter)" src="https://img.shields.io/github/v/release/JoeanAmier/TikTokDownloader?style=for-the-badge&color=ff7675">
+<img src="https://img.shields.io/badge/Sourcery-enabled-884898?style=for-the-badge&color=e056fd" alt="">
 <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/JoeanAmier/TikTokDownloader/total?style=for-the-badge&color=52c41a">
 </div>
 <br>
 <p>🔥 <b>TikTok 主页/合辑/直播/视频/图集/原声；抖音主页/视频/图集/收藏/直播/原声/合集/<del>评论</del>/<del>账号</del>/<del>搜索</del>/热榜数据采集工具：</b>完全开源，基于 HTTPX 模块实现的免费工具；批量下载抖音账号发布、喜欢、收藏作品；批量下载 TikTok 账号发布、喜欢作品；下载抖音链接或 TikTok 链接作品；获取抖音直播推流地址；下载抖音直播视频；获取 TikTok 直播推流地址；下载 TikTok 直播视频；<del>采集抖音作品评论数据</del>；批量下载抖音合集作品；批量下载 TikTok 合辑作品；<del>采集抖音账号详细数据</del>；<del>采集抖音用户 / 作品 / 直播搜索结果</del>；采集抖音热榜数据。</p>
-<p>⭐ <b>文档对应项目版本：<code>5.4 Beta</code>；文档内容正在完善中，如有发现任何错误或描述模糊之处，请告知作者以便改进！</b></p>
+<p>⭐ <b>文档对应项目版本：<code>5.5 Beta</code>；文档内容正在完善中，如有发现任何错误或描述模糊之处，请告知作者以便改进！</b></p>
 <hr>
 <h1>快速入门</h1>
 <ol>
-<li><b>下载 EXE 程序</b> 或者 <b>配置运行环境</b>
-<ol><b>下载程序运行</b>
-<li>下载 <a href="https://github.com/JoeanAmier/TikTokDownloader/releases/latest">Releases</a> 发布的 EXE 程序压缩包</li>
-<li>解压后打开程序文件夹，双击运行 <code>main.exe</code></li>
+<li><b>运行可执行文件</b> 或者 <b>配置环境运行</b>
+<ol><b>运行可执行文件</b>
+<li>下载 <a href="https://github.com/JoeanAmier/TikTokDownloader/releases/latest">Releases</a> 发布的可执行文件压缩包</li>
+<li>解压后打开程序文件夹，双击运行 <code>main</code></li>
 </ol>
-<ol><b>通过源码运行</b>
+<ol><b>配置环境运行</b>
 <li>安装不低于 <code>3.12</code> 版本的 <a href="https://www.python.org/">Python</a> 解释器</li>
 <li>下载最新的源码或 <a href="https://github.com/JoeanAmier/TikTokDownloader/releases/latest">Releases</a> 发布的源码至本地</li>
 <li>运行 <code>python -m venv venv</code> 命令创建虚拟环境（可选）</li>
@@ -708,7 +709,7 @@ https://www.douyin.com/note/123456789
 <p>参考 <a href="https://github.com/JoeanAmier/TikTokDownloader/blob/master/docs/Cookie%E8%8E%B7%E5%8F%96%E6%95%99%E7%A8%8B.md">Cookie 提取教程</a>，手动从浏览器复制所需 Cookie 至剪贴板，按照程序提示输入 Cookie 后回车确认，程序会自动处理 Cookie 并写入配置文件。</p>
 <p>如果粘贴 Cookie 至终端后无响应，可能是 Cookie 文本长度超出终端最大文本长度限制，请考虑更换终端或者其他写入方式。</p>
 <h2>从浏览器获取 Cookie</h2>
-<p>自动读取本地浏览器的 Cookie 数据，并提取所需 Cookie 写入配置文件，需要完全关闭对应浏览器才能读取 Cookie 数据。</p>
+<p>自动读取本地浏览器的 Cookie 数据，并提取所需 Cookie 写入配置文件。</p>
 <h2>扫码登录获取 Cookie</h2>
 <p>程序自动获取抖音登录二维码，随后会在终端输出二维码，并使用系统默认图片浏览器打开二维码图片，使用者通过抖音 APP 扫码并登录账号，操作后关闭二维码图片窗口，程序会自动检查登录结果并将登录后的 Cookie 写入配置文件。</p>
 <p><b>注意：</b>扫码登录可能会导致抖音账号被风控，该功能仅限学习研究，未来可能禁用或移除该功能！</p>
@@ -859,10 +860,10 @@ https://www.douyin.com/note/123456789
 <h3>批量下载收藏作品(抖音)</h3>
 <p>无需输入命令；需要在配置文件写入已登录的 Cookie，并在 <code>owner_url</code> 参数填入对应的账号主页链接和账号标识（可选）；目前仅支持采集当前 Cookie 对应账号的收藏作品。</p>
 <p>如果未设置 <code>owner_url</code> 参数，程序会使用临时字符串作为账号昵称和 UID（不建议）</p>
-<p>账号文件夹格式为 <code>UID123456789_mark_收藏作品</code> 或者 <code>UID123456789_账号昵称_收藏作品</code></p>
+<p>文件夹格式为 <code>UID123456789_mark_收藏作品</code> 或者 <code>UID123456789_账号昵称_收藏作品</code></p>
 <h3>批量下载收藏夹作品(抖音)</h3>
 <p>无需输入命令；需要在配置文件写入已登录的 Cookie，程序自动获取收藏夹消息并展示，输入收藏夹序号开始下载对应收藏夹作品，输入 <code>ALL</code> 下载全部收藏夹作品。</p>
-<p>账号文件夹格式为 <code>UID123456789_收藏夹名称_收藏作品</code></p>
+<p>文件夹格式为 <code>CID123456789_收藏夹名称_收藏作品</code></p>
 <h3>批量下载账号作品(TikTok)</h3>
 <ol>
 <li>使用 <code>settings.json</code> 的 <code>accounts_urls_tiktok</code> 参数中的账号链接。</li>

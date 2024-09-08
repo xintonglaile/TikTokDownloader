@@ -5,6 +5,7 @@ from types import SimpleNamespace
 from typing import TYPE_CHECKING
 from typing import Type
 
+from httpx import HTTPStatusError
 from httpx import RequestError
 from httpx import TimeoutException
 from httpx import get
@@ -74,10 +75,10 @@ class Parameter:
             cookie: dict | str,
             cookie_tiktok: dict | str,
             root: str,
-            accounts_urls: dict,
-            accounts_urls_tiktok: dict,
-            mix_urls: dict,
-            mix_urls_tiktok: dict,
+            accounts_urls: list[dict],
+            accounts_urls_tiktok: list[dict],
+            mix_urls: list[dict],
+            mix_urls_tiktok: list[dict],
             folder_name: str,
             name_format: str,
             date_format: str,
@@ -363,13 +364,17 @@ class Parameter:
             response = get(
                 url,
                 headers=self.HEADERS,
+                follow_redirects=True,
                 **kwarg, )
             response.raise_for_status()
             self.logger.info(f"代理 {proxy} 测试成功")
             return kwarg
         except TimeoutException:
             self.logger.warning(f"代理 {proxy} 测试超时")
-        except RequestError as e:
+        except (
+                RequestError,
+                HTTPStatusError,
+        ) as e:
             self.logger.warning(f"代理 {proxy} 测试失败：{e}")
         return {"proxies": self.NO_PROXY}
 
@@ -422,9 +427,7 @@ class Parameter:
 
     @staticmethod
     def __check_default_mode(default_mode: str) -> list:
-        if default_mode:
-            return default_mode.split()[::-1]
-        return []
+        return default_mode.split()[::-1] if default_mode else []
 
     async def update_params(self) -> None:
         await self.set_token_params()
@@ -654,17 +657,15 @@ class Parameter:
     def extract_proxy(proxy: str | dict | None) -> str | None:
         if isinstance(proxy, dict):
             return proxy.get("https://") or proxy.get("http://")
-        if isinstance(proxy, str):
-            return proxy
-        return None
+        return proxy if isinstance(proxy, str) else None
 
     def __check_truncate(self, truncate: int) -> int:
         if isinstance(truncate, int) and truncate >= 32:
             self.logger.info(f"truncate 参数已设置为 {truncate}", False)
             return truncate
         self.logger.warning(
-            f"truncate 参数 {truncate} 设置错误，程序将使用默认值：64", )
-        return 64
+            f"truncate 参数 {truncate} 设置错误，程序将使用默认值：50", )
+        return 50
 
     def __check_cookie_state(self, tiktok=False) -> bool:
         if tiktok:

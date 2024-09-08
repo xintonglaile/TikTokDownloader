@@ -1,5 +1,4 @@
 from asyncio import run
-from contextlib import suppress
 from shutil import rmtree
 from threading import Event
 from threading import Thread
@@ -41,6 +40,7 @@ from src.record import LoggerManager
 from src.tools import Browser
 from src.tools import ColorfulConsole
 from src.tools import choose
+from src.tools import remove_empty_directories
 from src.tools import safe_pop
 # from .main_api_server import APIServer
 from .main_complete import TikTok
@@ -57,6 +57,9 @@ __all__ = ["TikTokDownloader"]
 
 
 class TikTokDownloader:
+    VERSION_MAJOR = VERSION_MAJOR
+    VERSION_MINOR = VERSION_MINOR
+    VERSION_BETA = VERSION_BETA
     PLATFORM = (
         "cookie",
         "cookie_tiktok",
@@ -179,15 +182,15 @@ class TikTokDownloader:
             response = get(RELEASES, timeout=5, follow_redirects=True, )
             latest_major, latest_minor = map(
                 int, str(response.url).split("/")[-1].split(".", 1))
-            if latest_major > VERSION_MAJOR or latest_minor > VERSION_MINOR:
+            if latest_major > self.VERSION_MAJOR or latest_minor > self.VERSION_MINOR:
                 self.console.print(
                     f"检测到新版本: {latest_major}.{latest_minor}", style=WARNING)
                 self.console.print(RELEASES)
-            elif latest_minor == VERSION_MINOR and VERSION_BETA:
+            elif latest_minor == self.VERSION_MINOR and self.VERSION_BETA:
                 self.console.print(
                     "当前版本为开发版, 可更新至正式版", style=WARNING)
                 self.console.print(RELEASES)
-            elif VERSION_BETA:
+            elif self.VERSION_BETA:
                 self.console.print("当前已是最新开发版", style=WARNING)
             else:
                 self.console.print("当前已是最新正式版", style=INFO)
@@ -298,7 +301,7 @@ class TikTokDownloader:
         if not self.config["Record"]:
             self.console.print("作品下载记录功能已禁用！", style=WARNING)
             return
-        self.recorder.delete_ids(self.console.input("请输入需要删除的作品 ID："))
+        await self.recorder.delete_ids(self.console.input("请输入需要删除的作品 ID："))
         self.console.print("删除作品下载记录成功！", style=INFO)
 
     async def check_settings(self, restart=True):
@@ -320,6 +323,10 @@ class TikTokDownloader:
 
     async def run(self):
         self.project_info()
+        self.console.print(
+            "本项目 5.5 Beta 正在重构代码，部分功能可能无法正常使用，建议暂时使用 5.4 版本！\n",
+            style=WARNING,
+        )
         self.check_config()
         await self.check_settings(False, )
         self.check_update()
@@ -331,17 +338,20 @@ class TikTokDownloader:
 
     def periodic_update_cookie(self):
         async def inner():
+            # print("子线程开始运行！")  # 调试代码
             while not self.event.is_set():
+                # print("子线程运行中！")  # 调试代码
                 await self.parameter.update_params()
                 self.event.wait(COOKIE_UPDATE_INTERVAL)
+            # print("子线程结束运行！")  # 调试代码
 
-        with suppress(RuntimeError):
-            run(inner())
+        run(inner(), debug=self.VERSION_BETA, )
 
     def restart_cycle_task(self, restart=True, ):
         if restart:
             self.event.set()
             while self.cookie_task.is_alive():
+                # print("等待子线程结束！")  # 调试代码
                 sleep(1)
         self.cookie_task = Thread(target=self.periodic_update_cookie)
         self.event.clear()
@@ -349,7 +359,10 @@ class TikTokDownloader:
 
     def close(self):
         self.event.set()
-        self.delete_cache()
+        # self.delete_cache()
+        if self.parameter.folder_mode:
+            remove_empty_directories(self.parameter.ROOT)
+            remove_empty_directories(self.parameter.root)
         self.parameter.logger.info("正在关闭程序")
 
     async def browser_cookie(self, ):

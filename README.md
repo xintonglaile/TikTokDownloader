@@ -1,18 +1,20 @@
 <div align="center">
 <img src="https://github.com/JoeanAmier/TikTokDownloader/blob/master/static/images/TikTokDownloader.png" alt="TikTokDownloader" height="256" width="256"><br>
 <h1>TikTokDownloader</h1>
-<img alt="GitHub" src="https://img.shields.io/github/license/JoeanAmier/TikTokDownloader?style=for-the-badge&color=ff7a45">
-<img alt="GitHub forks" src="https://img.shields.io/github/forks/JoeanAmier/TikTokDownloader?style=for-the-badge&color=fa8c16">
+<img alt="GitHub" src="https://img.shields.io/github/license/JoeanAmier/TikTokDownloader?style=for-the-badge&color=ff6348">
+<img alt="GitHub forks" src="https://img.shields.io/github/forks/JoeanAmier/TikTokDownloader?style=for-the-badge&color=ffa502">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/JoeanAmier/TikTokDownloader?style=for-the-badge&color=ffee6f">
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/JoeanAmier/TikTokDownloader?style=for-the-badge&color=13c2c2">
 <br>
-<img alt="GitHub release (with filter)" src="https://img.shields.io/github/v/release/JoeanAmier/TikTokDownloader?style=for-the-badge&color=f759ab">
-<img src="https://img.shields.io/badge/Sourcery-enabled-884898?style=for-the-badge&color=1890ff" alt="">
+<img alt="Static Badge" src="https://img.shields.io/badge/Python-3.12-3498db?style=for-the-badge&logo=python&labelColor=fffa65">
+<img alt="GitHub release (with filter)" src="https://img.shields.io/github/v/release/JoeanAmier/TikTokDownloader?style=for-the-badge&color=ff7675">
+<img src="https://img.shields.io/badge/Sourcery-enabled-884898?style=for-the-badge&color=e056fd" alt="">
 <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/JoeanAmier/TikTokDownloader/total?style=for-the-badge&color=52c41a">
 </div>
 <br>
 <p>🔥 <b>TikTok 主页/合辑/直播/视频/图集/原声；抖音主页/视频/图集/收藏/直播/原声/合集/<del>评论</del>/<del>账号</del>/<del>搜索</del>/热榜数据采集工具：</b>完全开源，基于 HTTPX 模块实现的免费工具；批量下载抖音账号发布、喜欢、收藏作品；批量下载 TikTok 账号发布、喜欢作品；下载抖音链接或 TikTok 链接作品；获取抖音直播推流地址；下载抖音直播视频；获取 TikTok 直播推流地址；下载 TikTok 直播视频；<del>采集抖音作品评论数据</del>；批量下载抖音合集作品；批量下载 TikTok 合辑作品；<del>采集抖音账号详细数据</del>；<del>采集抖音用户 / 作品 / 直播搜索结果</del>；采集抖音热榜数据。</p>
-<p>⭐ Windows 10 及以上用户可前往 <a href="https://github.com/JoeanAmier/TikTokDownloader/releases/latest">Releases</a> 下载已编译的 exe 程序，开箱即用！</p>
+<p>⚠️ 本项目 <code>5.5 Beta</code> 正在重构代码，部分功能可能无法正常使用，建议暂时使用 <code>5.4</code> 版本！</p>
+<p>⭐ 本项目完全免费开源，无任何收费功能，请勿上当受骗！</p>
 <hr>
 
 # 📝 项目功能\(Function\)
@@ -47,12 +49,13 @@
 * ✅ 采集抖音搜索数据
 * ✅ 采集抖音热榜数据
 * ✅ 记录已下载作品 ID
-* ✅ 扫码登陆获取 Cookie
+* ☑️ 扫码登陆获取 Cookie
 * ✅ 从浏览器获取 Cookie
 * ✅ 支持 Web API 调用
 * ✅ 支持多线程下载作品
 * ✅ 文件完整性处理机制
 * ✅ 自定义规则筛选作品
+* ✅ 支持文件断点续传下载
 
 # 💻 程序界面\(Screenshot\)
 
@@ -86,20 +89,23 @@
 
 * 🟢 经过测试，[Releases](https://github.com/JoeanAmier/TikTokDownloader/releases/latest) 发布的源码已经验证所有功能正常可用
 * 🟡 TikTokDownloader 开发计划及进度可前往 [Projects](https://github.com/users/JoeanAmier/projects/2) 查阅
-* 🔴 请注意，最新源码可能存在一些不稳定的 Bug
+* 🔴 请注意，最新源码\(Beta 版本\)可能存在一些不稳定的 Bug
 * 🔴 如果在使用过程中发现程序 Bug，请及时告知作者修复
 
 # 📋 项目说明\(Instructions\)
 
 ## 快速入门
 
+<p>⭐ Mac OS、Windows 10 及以上用户可前往 <a href="https://github.com/JoeanAmier/TikTokDownloader/releases/latest">Releases</a> 下载已编译的程序，开箱即用！</p>
+<p><strong>注意：Mac OS 平台可执行文件 <code>main</code> 可能需要从终端命令行启动；受设备限制，Mac OS 平台可执行文件尚未经过测试，无法保证可用性！</strong></p>
+<hr>
 <ol>
-<li><b>下载 EXE 程序</b> 或者 <b>配置运行环境</b>
-<ol><b>下载程序运行</b>
-<li>下载 <a href="https://github.com/JoeanAmier/TikTokDownloader/releases/latest">Releases</a> 发布的 EXE 程序压缩包或安装包</li>
-<li>解压或安装后打开程序文件夹，双击运行 <code>main.exe</code></li>
+<li><b>运行可执行文件</b> 或者 <b>配置环境运行</b>
+<ol><b>运行可执行文件</b>
+<li>下载 <a href="https://github.com/JoeanAmier/TikTokDownloader/releases/latest">Releases</a> 发布的可执行文件压缩包</li>
+<li>解压后打开程序文件夹，双击运行 <code>main</code></li>
 </ol>
-<ol><b>通过源码运行</b>
+<ol><b>配置环境运行</b>
 <li>安装不低于 <code>3.12</code> 版本的 <a href="https://www.python.org/">Python</a> 解释器</li>
 <li>下载最新的源码或 <a href="https://github.com/JoeanAmier/TikTokDownloader/releases/latest">Releases</a> 发布的源码至本地</li>
 <li>运行 <code>python -m venv venv</code> 命令创建虚拟环境（可选）</li>
@@ -190,7 +196,7 @@
 </ul>
 <hr>
 
-## EXE 更新
+## 程序更新
 
 > **方案一：** 下载并解压文件，将旧版本的 `TikTokDownloader.db` 文件和 `settings.json` 文件复制到 `_internal` 文件夹。
 
@@ -216,7 +222,8 @@
 # ✉️ 联系作者\(Contact\)
 
 <ul>
-<li>微信: Downloader_Tools</li>
+<li>作者邮箱：yonglelolu@foxmail.com</li>
+<li>作者微信: Downloader_Tools</li>
 <li>微信公众号: Downloader Tools</li>
 <li><b>Discord 社区</b>: <a href="https://discord.com/invite/ZYtmgKud9Y">点击加入社区</a></li>
 <li>QQ 群聊(使用交流): <a href="https://github.com/JoeanAmier/TikTokDownloader/blob/master/docs/QQ%E7%BE%A4%E8%81%8A%E4%BA%8C%E7%BB%B4%E7%A0%81.png">扫码加入群聊</a></li>
@@ -245,6 +252,32 @@
 </table>
 <p>如果您愿意，可以考虑提供资助为 <b>TikTokDownloader</b> 提供额外的支持！</p>
 
+# 💰 项目赞助\(Sponsor\)
+
+## JetBrains 工具
+
+![PyCharm logo](https://resources.jetbrains.com/storage/products/company/brand/logos/PyCharm.svg)
+
+**JetBrains** 支持全球开源社区认可的活跃项目，并为非商业开发提供免费许可证。
+
+***
+
+## TikHub
+
+<img src="docs/赞助商_TikHub_Logo.png" alt="TikHub">
+<p><a href="https://tikhub.io/">TikHub</a> 是一家领先的数据接口服务供应商，专注于提供高质量的数据接口，涵盖了多个热门平台，包括 抖音、TikTok、小红书、Instagram、Twitter 和 快手 等平台。</p>
+<p>TikHub 还提供定制化的服务，如直播间监控、作品监控和达人监控，以满足不同业务场景的需求。</p>
+<p>通过每日签到，用户可以免费获取一定额度的使用量；可以使用我的 <strong>推荐链接</strong>：<a href="https://beta-web.tikhub.io/users/signup?referral_code=X084IATy">https://beta-web.tikhub.io/users/signup?referral_code=X084IATy</a> 或 <strong>推荐码</strong>：<code>X084IATy</code>，注册并充值即可获得 <code>$2</code> 额度！</p>
+<p><a href="https://tikhub.io/">TikHub</a> 提供以下服务：</p>
+<ul>
+<li>丰富的数据接口</li>
+<li>每日签到免费获取额度</li>
+<li>高质量的 API 服务</li>
+<li>官网：<a href="https://tikhub.io/">https://tikhub.io/</a></li>
+<li>项目地址：<a href="https://github.com/TikHubIO/">https://github.com/TikHubIO/</a></li>
+<li>用户登陆地址：<a href="https://beta-web.tikhub.io/">https://beta-web.tikhub.io/</a></li>
+</ul>
+
 # 💡 项目参考\(Refer\)
 
 * https://github.com/Johnserf-Seed/f2
@@ -255,7 +288,11 @@
 * https://github.com/encode/httpx/
 * https://github.com/Textualize/rich
 * https://github.com/omnilib/aiosqlite
-* https://github.com/borisbabic/browser_cookie3
+* https://github.com/Tinche/aiofiles
+* https://github.com/thewh1teagle/rookie
 * https://github.com/pyinstaller/pyinstaller
+* https://foss.heptapod.net/openpyxl/openpyxl
+* https://github.com/carpedm20/emoji/
+* https://github.com/lxml/lxml
 * https://ffmpeg.org/ffmpeg-all.html
 * https://html5up.net/hyperspace
