@@ -33,9 +33,9 @@ async def wait() -> None:
 def failure_handling() -> bool:
     """批量下载账号作品模式 和 批量下载合集作品模式 获取数据失败时，是否继续执行"""
     # 询问用户
-    return bool(input("输入任意字符继续处理账号/合集，直接回车停止处理账号/合集: "))
+    # return bool(input("输入任意字符继续处理账号/合集，直接回车停止处理账号/合集: "))
     # 继续执行
-    # return True
+    return True
     # 结束执行
     # return False
 
