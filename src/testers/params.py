@@ -28,7 +28,7 @@ class Params:
             interpolation=None,
         )
         self.read_ini()
-        self.headers = DATA_HEADERS | {"Cookie": self.cookie_str}
+        self.headers = DATA_HEADERS | {"Cookie": self.cookie_str} | {"uifid" : self.uifid}
         self.headers_tiktok = DATA_HEADERS_TIKTOK | {
             "Cookie": self.cookie_str_tiktok,
         }
