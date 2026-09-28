@@ -68,7 +68,6 @@ DATA_HEADERS = {
     "Accept": "*/*",
     "Accept-Encoding": "*/*",
     "Referer": REFERER,
-    "x-tt-argus": "1"
     
 }
 DATA_HEADERS_TIKTOK = DATA_HEADERS | {
